@@ -1,0 +1,23 @@
+{
+  "name": "tbv1sharedcomponents",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sean-purohit/TBV1SharedComponents.git"
+  },
+  "author": "Sean P",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/sean-purohit/TBV1SharedComponents/issues"
+  },
+  "homepage": "https://github.com/sean-purohit/TBV1SharedComponents#readme",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "luxon": "^3.0.1"
+  }
+}
