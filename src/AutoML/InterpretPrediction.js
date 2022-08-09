@@ -1,5 +1,39 @@
 const _ = require('lodash')
 
+const GetPredictedAttrs = (s) => {
+  const predictedGain = _.get(s, 'predictedGain')
+  const pIntervalStart = _.get(s, 'pIntervalStart')
+  const pIntervalEnd = _.get(s, 'pIntervalEnd')
+  const importantFeature2 = _.get(s, 'importantFeatures[0].featureImportance')
+  const importantFeature = _.get(s, 'importantFeatures[1].featureImportance')
+
+  const deltaInterval = pIntervalEnd - pIntervalStart
+  const meanInterval = _.mean([pIntervalStart, pIntervalEnd])
+  const deltaScoreMeanInterval = predictedGain - meanInterval
+  const deltaScoreStart = predictedGain - pIntervalStart
+  const deltaScoreEnd = predictedGain - pIntervalEnd
+  const deltaFeature = importantFeature - importantFeature2
+  const sumFeature = importantFeature + importantFeature2
+
+
+  return {
+    longGain: _.get(s, 'longGain'),
+    ticker: _.get(s, 'ticker'),
+    predictedGain,
+    pIntervalStart,
+    pIntervalEnd,
+    deltaInterval,
+    meanInterval,
+    deltaScoreMeanInterval,
+    deltaScoreStart,
+    deltaScoreEnd,
+    deltaFeature,
+    sumFeature,
+    importantFeature,
+    importantFeature2
+  }
+}
+
 const NormalizeOnlinePrediction = (p) => {
 
   const baselineScore = _.round(_.get(p, 'baselineScore'), 4)
@@ -62,7 +96,8 @@ const NormalizeBatchPrediction = (r) => {
 
 module.exports = {
   NormalizeBatchPrediction,
-  NormalizeOnlinePrediction
+  NormalizeOnlinePrediction,
+  GetPredictedAttrs
 }
 
     // Sample Important Feature Array.

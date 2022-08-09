@@ -220,6 +220,9 @@ const getAttrs = (s, config) => {
   if(config && config.longGain) {
     attrs.longGain = s.longGain
   }
+  if(config && config.ticker) {
+    attrs.ticker = s.ticker
+  }
   return attrs
 }
 
