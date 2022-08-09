@@ -1,5 +1,7 @@
-const AutoML = require('./AttrsForPrediction')
+const AttrsForPrediction = require('./AttrsForPrediction')
+const InterpretPrediction = require('./InterpretPrediction')
 
 module.exports = {
-  ...AutoML
+  AttrsForPrediction,
+  InterpretPrediction
 }

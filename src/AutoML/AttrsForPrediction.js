@@ -90,7 +90,7 @@ const getAttrs = (s, config) => {
   // const prevDayPrice = _.mean([s.prevDayO, prevDayC, prevDayH, prevDayL])
   // const prevDayVinUSD = prevDayV * prevDayPrice
   // doesn't include volumes
-  const foo = {
+  const attrs = {
     'rankWhenFound': s.rankWhenFound,
     //'prevDayVinUSD': prevDayVinUSD,
     'deltaCurPriceDayLow': getPerc(currentPrice, s.dayL),
@@ -218,15 +218,12 @@ const getAttrs = (s, config) => {
   }
 
   if(config && config.longGain) {
-    foo.longGain = s.longGain
+    attrs.longGain = s.longGain
   }
-  return foo
+  return attrs
 }
 
-const getStockValues = (s, includeLongGain) => {
-  s = getAttrs(s, includeLongGain)
-  return s
-}
+const getStockValues = getAttrs
 
 module.exports = {
   getCalculatedAttrs,
