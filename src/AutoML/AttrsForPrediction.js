@@ -218,7 +218,7 @@ const getAttrs = (s, config) => {
   }
 
   if(config && config.longGain) {
-    flatFields.longGain = s.longGain
+    foo.longGain = s.longGain
   }
   return foo
 }
